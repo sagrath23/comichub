@@ -2,14 +2,18 @@ import request from 'superagent';
 import config from '../config';
 
 export const listComics = async (limit, offset) => {
-  // TODO: remove this CORS Workaround
+  // TODO: fix this CORS workaround
   const response = await request.get(`https://cors-anywhere.herokuapp.com/${config.baseUrl}/issues`)
+    .set('Access-Control-Allow-Origin', '*')
+    .set('Access-Control-Allow-Credentials', 'true')
     .query({
       api_key: config.authKey,
       limit: 20,
       offset: 0,
       format: 'json'
     });
+
+  console.log(response, 'response');
 
   return response.body;
 };

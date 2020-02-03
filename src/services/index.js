@@ -1,4 +1,4 @@
-import { getComic, listComics} from './comicAPIService';
+import { getComic, listComics } from './comicAPIService';
 
 export {
   getComic,
