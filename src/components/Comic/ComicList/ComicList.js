@@ -3,18 +3,17 @@ import queryString from 'query-string';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, ButtonGroup, Col, ListGroup, ListGroupItem } from 'reactstrap';
-import { loadListAction } from '../../../actions';
+import { comicListRequest } from '../../../store/domains/comicList';
 
 const limit = 20;
-const extractPokemonIDFromURL = (url) => (url.split('/')[6]);
 
-const PokemonList = () => {
+const ComicList = () => {
   const { search } = useLocation();
   const history = useHistory();
   const { offset: startOffset = 0 } = queryString.parse(search);
   const dispatch = useDispatch();
   const [offset, setOffset] = useState(startOffset);
-  const { results: pokemonList } = useSelector((state) => (state.currentPokemonList));
+  const list = useSelector((state) => (state.comicList.list));
   const handleClick = (direction) => {
     let newOffset;
     if (direction === 'next') {
@@ -28,16 +27,15 @@ const PokemonList = () => {
   }
   useEffect(() => {
     setOffset(startOffset);
-    dispatch(loadListAction(limit, offset));
+    dispatch(comicListRequest(limit, offset));
   }, [dispatch, offset, startOffset]);
 
   return (
     <Col>
       <ListGroup data-testid="pokemon-list-list">
-        {pokemonList.map((pokemon, index) => (
+        {list.map((pokemon, index) => (
           <ListGroupItem data-testid={`pokemon-list-item-${index}`} key={index}>
-            <Link to={`/pokemons/${pokemon.name}`}>
-              <img alt="pokemon_sprite" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${extractPokemonIDFromURL(pokemon.url)}.png`} />
+            <Link to={`/issue/${pokemon.name}`}>
               {pokemon.name}
             </Link>
           </ListGroupItem>))}
@@ -51,4 +49,4 @@ const PokemonList = () => {
   );
 };
 
-export default PokemonList;
+export default ComicList;

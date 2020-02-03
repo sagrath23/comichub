@@ -1,6 +1,6 @@
-import { getPokemon, listPokemons } from './pokeApiService';
+import { getComic, listComics} from './comicAPIService';
 
 export {
-  getPokemon,
-  listPokemons
+  getComic,
+  listComics
 };

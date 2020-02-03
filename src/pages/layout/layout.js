@@ -14,7 +14,7 @@ import {
   NavLink,
   UncontrolledDropdown,
   Row } from 'reactstrap';
-import { PokemonDetail, PokemonList } from '../../components/Pokemon';
+import { ComicDetail, ComicList } from '../../components/Comic';
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,8 +56,8 @@ const Layout = () => {
       <Container>
         <Row>
           <Switch>
-            <Route exact path="/comics" component={PokemonList} />
-            <Route exact path="/comics/:comicID" component={PokemonDetail} />
+            <Route exact path="/comics" component={ComicList} />
+            <Route exact path="/comics/:comicID" component={ComicDetail} />
           </Switch>
         </Row>
       </Container>

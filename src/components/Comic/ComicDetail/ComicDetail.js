@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { loadPokemonAction } from '../../../actions';
 
-const PokemonDetail = () => {
+const ComicDetail = () => {
   const { pokemonName } = useParams();
   const dispatch = useDispatch();
   const detailedPokemon = useSelector((state) => (state.detailedPokemon));
@@ -21,4 +21,4 @@ const PokemonDetail = () => {
   );
 };
 
-export default PokemonDetail;
+export default ComicDetail;
