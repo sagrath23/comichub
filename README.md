@@ -1,6 +1,6 @@
 # ComicHub
 
-[![Build Status](https://travis-ci.org/sagrath23/testing-playground.svg?branch=master)](https://travis-ci.org/sagrath23/testing-playground)
+[![Build Status](https://travis-ci.com/sagrath23/comic-store.svg?branch=master)](https://travis-ci.com/sagrath23/comic-store)
 
 A small app to know all about comics.
 
