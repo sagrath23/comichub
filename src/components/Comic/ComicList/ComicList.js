@@ -33,10 +33,10 @@ const ComicList = () => {
   return (
     <Col>
       <ListGroup data-testid="pokemon-list-list">
-        {list.map((pokemon, index) => (
-          <ListGroupItem data-testid={`pokemon-list-item-${index}`} key={index}>
-            <Link to={`/issue/${pokemon.name}`}>
-              {pokemon.name}
+        {list.map((comic, index) => (
+          <ListGroupItem data-testid={`comic-list-item-${index}`} key={index}>
+            <Link to={`/issue/${comic.id}`}>
+              {`${comic.name} # ${comic.issue_number}`}
             </Link>
           </ListGroupItem>))}
       </ListGroup>
