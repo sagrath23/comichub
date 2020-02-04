@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, ButtonGroup, Col, ListGroup, ListGroupItem } from 'reactstrap';
+import ComicItem from '../ComicItem';
 import { comicListRequest } from '../../../store/domains/comicList';
 
 const limit = 20;
@@ -34,11 +35,8 @@ const ComicList = () => {
     <Col>
       <ListGroup data-testid="pokemon-list-list">
         {list.map((comic, index) => (
-          <ListGroupItem data-testid={`comic-list-item-${index}`} key={index}>
-            <Link to={`/issue/${comic.id}`}>
-              {`${comic.name} # ${comic.issue_number}`}
-            </Link>
-          </ListGroupItem>))}
+          <ComicItem comic={comic} index={index} />
+        ))}
       </ListGroup>
       <ButtonGroup>
         <Button data-testid="pokemon-list-prev-button" onClick={() => handleClick('prev')}>Prev</Button>

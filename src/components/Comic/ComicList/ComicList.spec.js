@@ -1,10 +1,10 @@
 import React from 'react';
 import { mockStore, renderComponent} from '../../../utils/test';
-import PokemonList from './PokemonList';
+import ComicList from './ComicList';
 
-describe('PokemonList component', () => {
+describe('ComicList component', () => {
   test('should render the component with default props', () => {
-    const { getByTestId } = renderComponent(mockStore(), <PokemonList />);
+    const { getByTestId } = renderComponent(mockStore(), <ComicList />);
 
     expect(getByTestId('pokemon-list-next-button')).toBeDefined();
     expect(getByTestId('pokemon-list-prev-button')).toBeDefined();
@@ -12,13 +12,13 @@ describe('PokemonList component', () => {
 
   test('should render the list with one element', () => {
     const { getByTestId } = renderComponent(mockStore({
-      currentPokemonList: {
+      currentComicList: {
         results: [{
           name: 'pikachu',
           url: 'https://pokeapi.co/api/v2/pokemon/25/'
         }]
       }
-    }), <PokemonList />);
+    }), <ComicList />);
 
     expect(getByTestId('pokemon-list-item-0')).toBeDefined();
   });

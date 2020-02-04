@@ -8,7 +8,7 @@ exports[`Layout page Component test should render the PokemonDetail Component 1`
     class="navbar-brand"
     href="/"
   >
-    Awesome Pokedex
+    ComicHub
   </a>
   <button
     aria-label="Toggle navigation"
@@ -106,7 +106,7 @@ exports[`Layout page Component test should render the PokemonList Component 1`] 
     class="navbar-brand"
     href="/"
   >
-    Awesome Pokedex
+    ComicHub
   </a>
   <button
     aria-label="Toggle navigation"
@@ -204,7 +204,7 @@ exports[`Layout page Component test should render the component with default pro
     class="navbar-brand"
     href="/"
   >
-    Awesome Pokedex
+    ComicHub
   </a>
   <button
     aria-label="Toggle navigation"

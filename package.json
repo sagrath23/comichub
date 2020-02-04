@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/react": "^9.3.2",
     "bootstrap": "^4.3.1",
+    "classnames": "^2.2.6",
     "display-if": "^1.0.4",
     "prop-types": "^15.7.2",
     "query-string": "^6.9.0",
@@ -62,6 +62,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^9.3.2",
     "http-status-code": "^2.1.0",
     "jest": "^24.9.0",
     "nock": "^11.6.0"

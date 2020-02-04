@@ -23,7 +23,7 @@ const Layout = () => {
   return (
     <>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Awesome Pokedex</NavbarBrand>
+        <NavbarBrand href="/">ComicHub</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
