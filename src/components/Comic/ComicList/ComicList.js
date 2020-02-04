@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import queryString from 'query-string';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, ButtonGroup, Col, ListGroup, ListGroupItem } from 'reactstrap';
+import { Button, ButtonGroup, Col, ListGroup } from 'reactstrap';
 import ComicItem from '../ComicItem';
 import { comicListRequest } from '../../../store/domains/comicList';
 
