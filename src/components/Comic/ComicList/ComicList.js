@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import queryString from 'query-string';
+import classnames from 'classnames';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, ButtonGroup, Col, ListGroup } from 'reactstrap';
+import { Button, ButtonGroup, Col } from 'reactstrap';
 import ComicItem from '../ComicItem';
 import { comicListRequest } from '../../../store/domains/comicList';
+import { AVAILABLE_LAYOUTS } from '../../../utils/constants';
+import './ComicList.css';
 
 const limit = 20;
 
-const ComicList = () => {
+const ComicList = ({ layout }) => {
   const { search } = useLocation();
   const history = useHistory();
-  const { offset: startOffset = 0 } = queryString.parse(search);
   const dispatch = useDispatch();
+  const { offset: startOffset = 0 } = queryString.parse(search);
   const [offset, setOffset] = useState(startOffset);
   const list = useSelector((state) => (state.comicList.list));
+  const layoutClassnames = classnames('comic-list-wrapper', {
+    [layout]: true
+  });
   const handleClick = (direction) => {
     let newOffset;
     if (direction === 'next') {
@@ -33,7 +40,7 @@ const ComicList = () => {
 
   return (
     <Col>
-      <ListGroup data-testid="issue-list-list">
+      <div className={layoutClassnames}>
         {list.map((comic, index) => (
           <ComicItem
             comic={comic}
@@ -41,7 +48,7 @@ const ComicList = () => {
             key={`comic-item-${index}`} 
           />
         ))}
-      </ListGroup>
+      </div>
       <ButtonGroup>
         <Button data-testid="comic-list-prev-button" onClick={() => handleClick('prev')}>Prev</Button>
         <Button data-testid="comic-list-next-button" onClick={() => handleClick('next')}>Next</Button>
@@ -49,6 +56,14 @@ const ComicList = () => {
     </Col>
     
   );
+};
+
+ComicList.propTypes = {
+  layout: PropTypes.oneOf(AVAILABLE_LAYOUTS)
+};
+
+ComicList.defaultProps = {
+  layout: AVAILABLE_LAYOUTS[0]
 };
 
 export default ComicList;

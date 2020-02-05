@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { ListGroupItem } from 'reactstrap';
 import { extractComicFullname } from '../../../utils';
 import './ComicItem.css';
 
@@ -14,19 +13,17 @@ const ComicItem = ({ comic, direction, index }) => {
   });
 
   return (
-    <ListGroupItem data-testid={`comic-list-item-${index}`} key={index}>
-        <Link to={`/issues/${extractIssueIDFromURL(comic.api_detail_url)}`}>
-          <div className={containerClassnames}>
-            <div>
-              <img className="img-fluid" alt="volume_cover" src={comic.image.original_url} />
-            </div>
-            <div>
-              <h3>{extractComicFullname(comic)}</h3>
-              <p>{comic.cover_date || comic.volume.cover_date}</p>
-            </div>
-          </div>
-        </Link>
-    </ListGroupItem>
+    <Link to={`/issues/${extractIssueIDFromURL(comic.api_detail_url)}`}>
+      <div className={containerClassnames}>
+        <div>
+          <img className="img-fluid" alt="volume_cover" src={comic.image.original_url} />
+        </div>
+        <div>
+          <h3>{extractComicFullname(comic)}</h3>
+          <p>{comic.cover_date || comic.volume.cover_date}</p>
+        </div>
+      </div>
+    </Link>
   );
 };
 
