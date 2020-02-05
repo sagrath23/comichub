@@ -1,0 +1,41 @@
+.detail-container {
+  display: grid;
+  grid-template-areas: 
+    "title title"
+    "characters cover"
+    "teams cover"
+    "locations cover"
+    "concepts cover"
+    "nav-btns nav-btns";
+  grid-row-gap: 1rem;
+  grid-column-gap: 1rem;
+  grid-template-columns: 65% auto;
+}
+
+.title {
+  grid-area: title;
+}
+
+.characters {
+  grid-area: characters;
+}
+
+.teams {
+  grid-area: teams;
+}
+
+.locations {
+  grid-area: locations;
+}
+
+.concepts {
+  grid-area: concepts;
+}
+
+.cover {
+  grid-area: cover;
+}
+
+.nav-btns {
+  grid-area: nav-btns;
+}
