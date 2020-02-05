@@ -5,13 +5,13 @@
 }
 
 .grid {
-  grid-auto-flow: row dense;
+  grid-auto-flow: column dense;
   grid-auto-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 
 .list {
-  grid-auto-flow: column dense;
+  grid-auto-flow: row dense;
   grid-auto-rows: 1fr;
   grid-template-columns: 1fr;
 }

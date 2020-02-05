@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import { extractComicFullname } from '../../../utils';
 import './ComicItem.css';
 
@@ -11,16 +12,17 @@ const ComicItem = ({ comic, direction, index }) => {
   const containerClassnames = classnames('comic-item-container', {
     [direction]: true
   });
+  const coverDate = moment(comic.cover_date || comic.volume.cover_date).format('MMMM Do, YYYY');
 
   return (
     <Link to={`/issues/${extractIssueIDFromURL(comic.api_detail_url)}`}>
-      <div className={containerClassnames}>
+      <div data-testid={`comic-list-item-${index}`} className={containerClassnames}>
         <div>
           <img className="img-fluid" alt="volume_cover" src={comic.image.original_url} />
         </div>
         <div>
           <h3>{extractComicFullname(comic)}</h3>
-          <p>{comic.cover_date || comic.volume.cover_date}</p>
+          <p>{coverDate}</p>
         </div>
       </div>
     </Link>
