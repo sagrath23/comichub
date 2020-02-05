@@ -4,13 +4,17 @@
   grid-row-gap: 0.25rem;
 }
 
-.column {
+.comic-item-container.list {
   grid-auto-flow: column dense;
-  grid-template: repeat(3, auto) / repeat(1, auto);
 }
 
-.row {
+.comic-item-container.grid {
   grid-auto-flow: row dense;
-  grid-template: repeat(1, auto) / repeat(3, auto);
 }
 
+.comic-item-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -4,14 +4,13 @@
   grid-row-gap: 0.25rem;
 }
 
-.grid {
+.comic-list-wrapper.grid {
   grid-auto-flow: column dense;
   grid-auto-columns: 1fr;
   grid-template-rows: repeat(5, 1fr);
 }
 
-.list {
+.comic-list-wrapper.list {
   grid-auto-flow: row dense;
-  grid-auto-rows: 1fr;
   grid-template-columns: 1fr;
 }

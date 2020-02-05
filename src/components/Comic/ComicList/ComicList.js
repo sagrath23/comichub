@@ -44,6 +44,7 @@ const ComicList = ({ layout }) => {
         {list.map((comic, index) => (
           <ComicItem
             comic={comic}
+            layout={layout}
             index={index}
             key={`comic-item-${index}`} 
           />
