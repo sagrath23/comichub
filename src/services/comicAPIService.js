@@ -10,8 +10,8 @@ export const listComics = async (limit, offset) => {
     .set('Access-Control-Allow-Credentials', 'true')
     .query({
       api_key: config.authKey,
-      limit: 20,
-      offset: 0,
+      limit,
+      offset,
       format: 'json',
       sort: 'cover_date:desc'
     });
@@ -25,7 +25,6 @@ export const getComic = async (comicID) => {
     .set('Access-Control-Allow-Credentials', 'true')
     .query({
       api_key: config.authKey,
-      // field_list: ['id', 'image', 'character_credits', 'location_credits', 'concept_credits'],
       format: 'json'
     });
 

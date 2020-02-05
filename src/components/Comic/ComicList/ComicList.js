@@ -31,7 +31,7 @@ const ComicList = ({ layout }) => {
     }
 
     setOffset(newOffset);
-    history.push(`/pokemons?offset=${newOffset}`);
+    history.push(`/issues?offset=${newOffset}`);
   }
   useEffect(() => {
     setOffset(startOffset);

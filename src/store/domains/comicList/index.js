@@ -12,7 +12,7 @@ export const {
   comicListSuccessed,
   comicListFailed
 } = createActions({
-  COMIC_LIST_REQUEST: undefined,
+  COMIC_LIST_REQUEST: (limit, offset) => ({ limit, offset }),
   COMIC_LIST_SUCCESSED: (list) => ({ list }),
   COMIC_LIST_FAILED: undefined
 });
