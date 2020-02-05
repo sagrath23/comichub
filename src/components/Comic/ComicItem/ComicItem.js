@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { ListGroupItem } from 'reactstrap';
+import { extractComicFullname } from '../../../utils';
 import './ComicItem.css';
+
+const extractIssueIDFromURL = (url) => (url.split('/')[5]);
 
 const ComicItem = ({ comic, direction, index }) => {
   const containerClassnames = classnames('comic-item-container', {
@@ -12,13 +15,13 @@ const ComicItem = ({ comic, direction, index }) => {
 
   return (
     <ListGroupItem data-testid={`comic-list-item-${index}`} key={index}>
-        <Link to={`/issue/${comic.id}`}>
+        <Link to={`/issues/${extractIssueIDFromURL(comic.api_detail_url)}`}>
           <div className={containerClassnames}>
             <div>
-              <img alt="volume_cover" src={comic.image.original_url} />
+              <img className="img-fluid" alt="volume_cover" src={comic.image.original_url} />
             </div>
             <div>
-              <h3>{`${comic.volume.name} # ${comic.issue_number}`}</h3>
+              <h3>{extractComicFullname(comic)}</h3>
               <p>{comic.cover_date || comic.volume.cover_date}</p>
             </div>
           </div>

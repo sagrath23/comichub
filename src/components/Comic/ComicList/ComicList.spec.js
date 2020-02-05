@@ -4,22 +4,33 @@ import ComicList from './ComicList';
 
 describe('ComicList component', () => {
   test('should render the component with default props', () => {
-    const { getByTestId } = renderComponent(mockStore(), <ComicList />);
+    const { getByTestId } = renderComponent(mockStore({
+      comicList: {
+        list: []
+      }
+    }), <ComicList />);
 
-    expect(getByTestId('pokemon-list-next-button')).toBeDefined();
-    expect(getByTestId('pokemon-list-prev-button')).toBeDefined();
+    expect(getByTestId('comic-list-next-button')).toBeDefined();
+    expect(getByTestId('comic-list-prev-button')).toBeDefined();
   });
 
   test('should render the list with one element', () => {
     const { getByTestId } = renderComponent(mockStore({
-      currentComicList: {
-        results: [{
-          name: 'pikachu',
-          url: 'https://pokeapi.co/api/v2/pokemon/25/'
+      comicList: {
+        list: [{
+          api_detail_url: 'https://comicvine.co/api/123/',
+          id: 123,
+          image: {
+            original_url: 'https://url-to-source/cover.jpeg'
+          },
+          name: 'The Amazing Spiderman',
+          volume: {
+            name: 'The Amazing Spiderman'
+          }
         }]
       }
     }), <ComicList />);
 
-    expect(getByTestId('pokemon-list-item-0')).toBeDefined();
+    expect(getByTestId('comic-list-item-0')).toBeDefined();
   });
 });

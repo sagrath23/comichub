@@ -33,14 +33,18 @@ const ComicList = () => {
 
   return (
     <Col>
-      <ListGroup data-testid="pokemon-list-list">
+      <ListGroup data-testid="issue-list-list">
         {list.map((comic, index) => (
-          <ComicItem comic={comic} index={index} />
+          <ComicItem
+            comic={comic}
+            index={index}
+            key={`comic-item-${index}`} 
+          />
         ))}
       </ListGroup>
       <ButtonGroup>
-        <Button data-testid="pokemon-list-prev-button" onClick={() => handleClick('prev')}>Prev</Button>
-        <Button data-testid="pokemon-list-next-button" onClick={() => handleClick('next')}>Next</Button>
+        <Button data-testid="comic-list-prev-button" onClick={() => handleClick('prev')}>Prev</Button>
+        <Button data-testid="comic-list-next-button" onClick={() => handleClick('next')}>Next</Button>
       </ButtonGroup>
     </Col>
     

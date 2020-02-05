@@ -8,7 +8,7 @@ import { comicFailed, comicSuccessed, comicRequest } from '../store/domains/comi
 
 export function* getComicSaga({ payload: { id }}) {
   try {
-    const requestResult = yield call(getComic, id);
+    const { results: requestResult } = yield call(getComic, id);
 
     yield put(comicSuccessed(requestResult));
   } catch(error) {
@@ -18,7 +18,6 @@ export function* getComicSaga({ payload: { id }}) {
   }
 }
 
-// Our watcher Saga: spawn a new getComicSaga task on each INCREMENT_ASYNC
 export function* watchComicRequestSaga() {
   yield takeEvery(comicRequest, getComicSaga);
 }

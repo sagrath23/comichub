@@ -1,9 +1,20 @@
 import { createActions, handleActions } from 'redux-actions';
 
 export const initialState = {
+  character_credits: [],
+  concept_credits: [],
   id: '',
+  image: {
+    original_url: ''
+  },
+  issue_number: '',
+  location_credits: [],
   ui: {
     isLoading: false
+  },
+  team_credits: [],
+  volume: {
+    name: ''
   }
 };
 

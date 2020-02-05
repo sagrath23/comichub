@@ -15,9 +15,8 @@ describe('ComicVine API Services', () => {
     const offset = 0;
 
     beforeEach(() => {
-      nock(config.baseUrl)
+      nock(`https://cors-anywhere.herokuapp.com/${config.baseUrl}`)
         .get('/issues')
-        .query({ api_key: config.authKey })
         .reply(OK, comicList);
     });
 
@@ -37,7 +36,7 @@ describe('ComicVine API Services', () => {
      };
 
     beforeEach(() => {
-      nock(config.baseUrl)
+      nock(`https://cors-anywhere.herokuapp.com/${config.baseUrl}`)
         .get(`/issue/${ComicName}`)
         .reply(OK, ComicDetail);
     });

@@ -56,8 +56,8 @@ const Layout = () => {
       <Container>
         <Row>
           <Switch>
-            <Route exact path="/comics" component={ComicList} />
-            <Route exact path="/comics/:comicID" component={ComicDetail} />
+            <Route exact path="/issues" component={ComicList} />
+            <Route exact path="/issues/:issueID" component={ComicDetail} />
           </Switch>
         </Row>
       </Container>
