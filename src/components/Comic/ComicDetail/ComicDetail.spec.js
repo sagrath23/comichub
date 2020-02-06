@@ -9,6 +9,6 @@ describe('ComicDetail component', () => {
       comic: initialState
     }), <ComicDetail />);
 
-    expect(getByTestId('pokemon-name')).toBeDefined();
+    expect(getByTestId('issue-name')).toBeDefined();
   });
 });

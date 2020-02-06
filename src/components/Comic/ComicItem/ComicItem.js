@@ -44,7 +44,11 @@ ComicItem.propTypes = {
 };
 
 ComicItem.defaultProps = {
-  comic: {},
+  comic: {
+    api_detail_url: '',
+    image: {},
+    volume: {}
+  },
   layout: AVAILABLE_LAYOUTS[0],
   index: 0
 };
